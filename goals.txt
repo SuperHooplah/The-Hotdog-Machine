@@ -1,0 +1,5 @@
+Plans for this project
+
+- Must use at least two tables (up to unlimited)
+- Generate a random taco (with a button press)
+- Add your own base/fillings/toppings
