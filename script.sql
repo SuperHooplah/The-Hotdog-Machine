@@ -1,4 +1,4 @@
---create the taco_base table
+-- create the taco_base table
 CREATE TABLE taco_base (
   id INTEGER PRIMARY KEY,
   base TEXT NOT NULL,
