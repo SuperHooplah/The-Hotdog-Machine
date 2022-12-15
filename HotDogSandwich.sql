@@ -1,14 +1,14 @@
 BEGIN TRANSACTION;
 CREATE TABLE IF NOT EXISTS "HotDog" (
 	"Bun"	INTEGER,
-	"Condoments"	INTEGER,
+	"Condiments"	INTEGER,
 	"Toppings"	INTEGER,
 	"Meat"	INTEGER
 );
 CREATE TABLE IF NOT EXISTS "Sandwich" (
 	"Bread"	INTEGER,
 	"Meat"	INTEGER,
-	"Condoments"	INTEGER,
+	"Condiments"	INTEGER,
 	"Toppings"	INTEGER
 );
 INSERT INTO "HotDog" VALUES ('Classic hot dog bun','Mustard','Onion','Chicken hot dog');
