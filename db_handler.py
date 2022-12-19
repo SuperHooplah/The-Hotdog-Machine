@@ -19,7 +19,7 @@ def open_db(filename: str) -> Tuple[sqlite3.Connection, sqlite3.Cursor]:
         # execute the SQL statements
         open_cursor.executescript(sql)
     else:
-        # if the .db file is already there connect to the existing database and sets up a cursor
+        # if the .db file is already there connect to the existing database and sets up a cursors
         db_connection = sqlite3.connect(filename + ".db")
         open_cursor = db_connection.cursor()
 
