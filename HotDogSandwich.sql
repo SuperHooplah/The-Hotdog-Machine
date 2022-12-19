@@ -36,4 +36,11 @@ INSERT INTO "meats" VALUES (1,350,'Pork');
 INSERT INTO "meats" VALUES (2,300,'Turkey');
 INSERT INTO "condiment" VALUES (1,10,1,'Mustard');
 INSERT INTO "condiment" VALUES (2,12,1,'ketchup');
+
+INSERT INTO "HotDog" ("dogID", "name", "bun", "meat", "condiments", "story")
+VALUES (1, 'Classic Hot Dog', 1, 1, 1, 'A classic hot dog with a bun made from white bread, pork meat, and mustard condiment.');
+
+INSERT INTO "HotDog" ("dogID", "name", "bun", "meat", "condiments", "story")
+VALUES (2, 'Turkey Hot Dog', 2, 2, 2, 'A hot dog with a bun made from wheat bread, turkey meat, and ketchup condiment.');
+
 COMMIT;
