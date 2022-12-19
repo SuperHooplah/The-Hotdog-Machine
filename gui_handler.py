@@ -10,7 +10,12 @@ def displayRandomHotDog(cursor, text):
 def displayHotDogsWindow(cursor, window):
     newWindow = tk.Toplevel(window)
     newWindow.title("Hot Dog Table")
-    tk.Label(newWindow, text = "This is a new window").pack()
+
+    hotdog_text = tk.Text(newWindow)
+    hotdog_text.pack()
+
+    # query the HotDog table and display the results in the text widget
+    hotdog_text.insert("insert", "PUT TEXT OUTPUT HERE")
 
 # Used to start a gui with tkinter as tk. Only displays content of db currently
 def gui(cursor):
