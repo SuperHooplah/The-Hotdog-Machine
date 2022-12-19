@@ -1,5 +1,5 @@
 Plans for this project
 
 - Must use at least two tables (up to unlimited) (So probably a base, and then a table for each piece (condiment, shell, filling))
-- Generate a random taco (with a button press)
+- Generate a random hot dog (with a button press)
 - Add your own base/fillings/toppings
