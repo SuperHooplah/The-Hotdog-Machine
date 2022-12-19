@@ -14,19 +14,19 @@ CREATE TABLE IF NOT EXISTS "HotDog" (
 CREATE TABLE IF NOT EXISTS "buns" (
 	"bunID"	INTEGER,
 	"calories"	INTEGER NOT NULL,
-	"desc"	TEXT,
+	"name"	TEXT,
 	PRIMARY KEY("bunID")
 );
 CREATE TABLE IF NOT EXISTS "meats" (
 	"meatID"	INTEGER,
 	"calories"	INTEGER NOT NULL,
-	"desc"	TEXT,
+	"name"	TEXT,
 	PRIMARY KEY("meatID")
 );
 CREATE TABLE IF NOT EXISTS "condiment" (
 	"conID"	INTEGER,
 	"calories"	INTEGER NOT NULL,
-	"desc"	TEXT,
+	"name"	TEXT,
 	PRIMARY KEY("conID")
 );
 INSERT INTO "buns" VALUES (1,400,'Made from white Bread');
