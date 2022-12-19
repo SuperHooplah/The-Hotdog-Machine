@@ -17,6 +17,10 @@ def displayHotDogsWindow(cursor, window):
     # query the HotDog table and display the results in the text widget
     hotdog_text.insert("insert", "PUT TEXT OUTPUT HERE")
 
+def addIngredientToTable(cursor, type):
+    # check what type of ingredient, open that table and add item
+    print("")
+
 # Used to start a gui with tkinter as tk. Only displays content of db currently
 def gui(cursor):
     # create a new window
@@ -39,6 +43,10 @@ def gui(cursor):
 
     genHotDog = tk.Button(left_frame, text="Generate Hot Dog", command=lambda: displayRandomHotDog(cursor, text))
     genHotDog.pack(side='top')
+
+    addCondimentBTN = tk.Button(left_frame, text="Add Condiment",
+                                command=lambda: addIngredientToTable(cursor, "condiment"))
+    addCondimentBTN.pack(side='top')
 
     displayAllDogs = tk.Button(left_frame, text="See all Hot Dogs", command=lambda: displayHotDogsWindow(cursor, root))
     displayAllDogs.pack(side='bottom')
