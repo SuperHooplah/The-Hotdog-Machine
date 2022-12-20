@@ -6,9 +6,11 @@ def main():
     db, cursor = db_handler.open_db("HotDogSandwich")
     gui_handler.gui(cursor)
     # commit any changes and close the database
-    db_handler.create_random_hotdog(db)
 
-    ##db_handler.close_db(db)
+    #db_handler.create_random_hotdog(db)
+
+    db_handler.close_db(db)
+
 
 
 
