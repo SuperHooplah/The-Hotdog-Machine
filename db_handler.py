@@ -67,7 +67,8 @@ def create_random_hotdog(conn):
               (hotDogName, bun_id, meat_id, condiment_id, "a randomly generated hot dog, results may vary"))
     conn.commit()
 
-    random_dog = f"Here's your hot dog! It's a {meat[2]} dog with {condiment[2]} on a bun {bun[2]}"
+    random_dog = f"Here's your hot dog! It's a {meat[2]} dog with {condiment[2]} on a bun {bun[2]}. It's total" \
+                 f" calories are {meat[1] + condiment[1] + bun[1]}."
     return random_dog
 
     # this function creates a formatted string that contains all hot dogs and their ingredients
