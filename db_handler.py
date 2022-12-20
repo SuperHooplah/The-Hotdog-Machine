@@ -75,15 +75,17 @@ def hotDogToString(cursor):
     # collect all of the data necessary
     cursor.execute("SELECT dogID, name, bun, meat, condiments FROM HotDog")
     hot_dogs = cursor.fetchall()
-    cursor.execute("SELECT name FROM buns")
+    cursor.execute("SELECT name, calories FROM buns")
     buns = cursor.fetchall()
-    cursor.execute("SELECT name FROM meats")
+    cursor.execute("SELECT name, calories FROM meats")
     meats = cursor.fetchall()
-    cursor.execute("SELECT name FROM condiment")
+    cursor.execute("SELECT name, calories FROM condiment")
     conds = cursor.fetchall()
 
     toString = ""
+
     for item in hot_dogs:
+        total_calories = ((buns[(item[2] - 1)][1]) + (meats[(item[3] - 1)][1]) + (conds[(item[4] - 1)][1]))
         toString += f"Hot Dog #{item[0]} - Name: {item[1]}; Bun: {buns[(item[2] - 1)][0]}; Meat: {meats[(item[3] - 1)][0]}; " \
-                   f"Condiment: {conds[(item[4] - 1)][0]}\n"
+                   f"Condiment: {conds[(item[4] - 1)][0]}; Total Calories: {total_calories}\n\n"
     return toString

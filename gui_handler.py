@@ -1,15 +1,14 @@
 import tkinter as tk
-# Simpledialog user for user input
 from tkinter import simpledialog
-import random
-
 # this function pulls data from the database and generates a random hot dog
 import db_handler
 
 
-def displayRandomHotDog(cursor, text):
+def displayRandomHotDog(text):
+    # Open the db
+    db, cursor = db_handler.open_db("HotDogSandwich")
     text.delete("1.0", "end")
-    text.insert("insert", str(random.randint(0, 10)))
+    text.insert("insert", db_handler.create_random_hotdog(db))
 
 
 def displayHotDogsWindow(cursor, window):
@@ -20,7 +19,7 @@ def displayHotDogsWindow(cursor, window):
     hotdog_text.pack()
 
     # query the HotDog table and display the results in the text widget
-    hotdog_text.insert("insert", "PUT TEXT OUTPUT HERE")
+    hotdog_text.insert("insert", db_handler.hotDogToString(cursor))
 
 def addIngredientToTable(type):
 
@@ -71,7 +70,7 @@ def gui(cursor):
     # Create left and right frames
 
     # the right frame will hold the text that gets updated with each button press
-    right_frame = tk.Frame(root)
+    right_frame = tk.Frame(root, width=1500, height=400)
     right_frame.pack(side='right')
 
     text = tk.Text(right_frame)
@@ -83,7 +82,7 @@ def gui(cursor):
 
 
 
-    genHotDog = tk.Button(left_frame, text="Generate Hot Dog", command=lambda: displayRandomHotDog(cursor, text))
+    genHotDog = tk.Button(left_frame, text="Generate Hot Dog", command=lambda: displayRandomHotDog(text))
     genHotDog.pack(side='top')
 
     addCondimentBTN = tk.Button(left_frame, text="Add Condiment",
