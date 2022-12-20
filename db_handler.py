@@ -56,8 +56,34 @@ def create_random_hotdog(conn):
     condiment = c.fetchone()
     condiment_id = condiment[0]
 
+    # Make the Hot dog's name
+    c.execute("SELECT COUNT(*) FROM HotDog")
+    numberOfDogsHolder = c.fetchone()
+    numberOfDogs = numberOfDogsHolder[0]
+    hotDogName = "Random Hot Dog #" + str(numberOfDogs - 1)
+
     # Insert the hotdog into the HotDog table
-    c.execute("INSERT INTO HotDog (name, bun, meat, condiments) VALUES (?, ?, ?, ?)",
-              ("Random Hot Dog", bun_id, meat_id, condiment_id))
+    c.execute("INSERT INTO HotDog (name, bun, meat, condiments, story) VALUES (?, ?, ?, ?, ?)",
+              (hotDogName, bun_id, meat_id, condiment_id, "a randomly generated hot dog, results may vary"))
     conn.commit()
-#
+
+    random_dog = f"Here's your hot dog! It's a {meat[2]} dog with {condiment[2]} on a bun {bun[2]}"
+    return random_dog
+
+    # this function creates a formatted string that contains all hot dogs and their ingredients
+def hotDogToString(cursor):
+    # collect all of the data necessary
+    cursor.execute("SELECT dogID, name, bun, meat, condiments FROM HotDog")
+    hot_dogs = cursor.fetchall()
+    cursor.execute("SELECT name FROM buns")
+    buns = cursor.fetchall()
+    cursor.execute("SELECT name FROM meats")
+    meats = cursor.fetchall()
+    cursor.execute("SELECT name FROM condiment")
+    conds = cursor.fetchall()
+
+    toString = ""
+    for item in hot_dogs:
+        toString += f"Hot Dog #{item[0]} - Name: {item[1]}; Bun: {buns[(item[2] - 1)][0]}; Meat: {meats[(item[3] - 1)][0]}; " \
+                   f"Condiment: {conds[(item[4] - 1)][0]}\n"
+    return toString
