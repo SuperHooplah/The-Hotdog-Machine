@@ -24,7 +24,7 @@ def displayHotDogsWindow(cursor, window):
 
 def addIngredientToTable(type):
 
-    ## create a new window
+    # create a new window
     name = tk.simpledialog.askstring("Name", "Please enter the name to add?")
     # Get the calorie amount
     calories = tk.simpledialog.askinteger("Calories", "Please enter the amount of calories to add?")
